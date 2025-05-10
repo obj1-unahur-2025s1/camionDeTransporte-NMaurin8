@@ -1,9 +1,9 @@
-import cosas.*
 object camion {
     const carga = []
     method carga() = carga
     method cargar(unaCosa){
         carga.add(unaCosa)
+        unaCosa.consecuenciaCarga()
     }
     method descargar(unaCosa){
         carga.remove(unaCosa)
@@ -30,5 +30,7 @@ object camion {
     method algunaCosaPesaEntre(valorMinimo, valorMaximo) = carga.any({cosa => cosa.peso().between(valorMinimo, valorMaximo)})
 
     method cosaMasPesada() = carga.max({cosa => cosa.peso()})
+
+    method totalBultos() = carga.sum({cosa => cosa.bulto()})
  }
 
